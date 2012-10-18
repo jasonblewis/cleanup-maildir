@@ -55,6 +55,8 @@ NOTES
   The following form is accepted for backwards compatibility, but is deprecated:
   cleanup-maildir --mode=COMMAND [OPTION].. FOLDERNAME..
 
+  Foldername 'INBOX' refers to your root maildir (~/Maildir)
+
 EXAMPLES
   # Archive messages in 'Sent Items' folder over 30 days old
   cleanup-maildir --age=30 archive 'Sent Items'
@@ -62,6 +64,8 @@ EXAMPLES
   # Delete messages over 2 weeks old in 'Lists/debian-devel' folder,
   # except messages that are part of a thread containing a flagged message.
   cleanup-maildir --keep-flagged-threads trash 'Lists.debian-devel'
+  # Move messages out of inbox to archive that are more than 25 days old
+  cleanup-maildir -a 25 --archive-folder='Archive' trash 'INBOX'
 """
 
 __version__ = "0.2.3"
